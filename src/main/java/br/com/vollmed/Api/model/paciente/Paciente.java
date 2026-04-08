@@ -1,21 +1,24 @@
 package br.com.vollmed.Api.model.paciente;
 
-import br.com.vollmed.Api.model.endereco.Endereco;
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity 
-@Table(name = "paciente")
+@Table(name = "pacientes")
+@Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
+@EqualsAndHashCode(of = "id")
 public class Paciente {
-    private int id;
-    private String nomeCompleto;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private String nome;
     private String email;
     private String telefone;
     private String cpf;
-    private Endereco endereco;
+    // private Endereco endereco;
 
 }

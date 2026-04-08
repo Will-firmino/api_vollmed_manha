@@ -1,11 +1,10 @@
 package br.com.vollmed.Api.model.medico;
 
-import br.com.vollmed.Api.model.endereco.Endereco;
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity // SPRING JPA - Informa que a classe é uma entidade, ou seja, será uma tabela no BD.
-@Table(name = "medico") // SPRING JPA - *Opcional, altera o nome da tabela de medico para medicos
+@Table(name = "medicos") // SPRING JPA - *Opcional, altera o nome da tabela de medico para medicos
 @Getter
 @Setter
 @AllArgsConstructor
@@ -26,5 +25,5 @@ public class Medico {
     @Enumerated(EnumType.STRING)
     private Especialidade especialidade;
     // private Endereco endereco;
-    // private int status;
+
 }
