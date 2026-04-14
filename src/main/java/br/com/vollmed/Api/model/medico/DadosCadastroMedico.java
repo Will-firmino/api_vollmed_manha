@@ -1,6 +1,5 @@
 package br.com.vollmed.Api.model.medico;
 
-
 public record DadosCadastroMedico(
         String nome,
         String email,
