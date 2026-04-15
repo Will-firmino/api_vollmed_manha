@@ -26,4 +26,13 @@ public class Medico {
     private Especialidade especialidade;
     // private Endereco endereco;
 
+    // Método Construtor que recebe a classe DTO e atualiza com as conversões
+    public Medico(DadosCadastroMedico dados) {
+        this.nome = dados.nome();
+        this.email = dados.email();
+        this.telefone = dados.telefone();
+        this.crm = dados.crm();
+        this.especialidade = dados.especialidade();
+    }
+
 }
