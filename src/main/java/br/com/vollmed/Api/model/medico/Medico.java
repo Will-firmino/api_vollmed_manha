@@ -1,5 +1,6 @@
 package br.com.vollmed.Api.model.medico;
 
+import br.com.vollmed.Api.model.endereco.Endereco;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,7 +25,9 @@ public class Medico {
 
     @Enumerated(EnumType.STRING)
     private Especialidade especialidade;
-    // private Endereco endereco;
+
+    @Embedded
+    private Endereco endereco;
 
     // Método Construtor que recebe a classe DTO e atualiza com as conversões
     public Medico(DadosCadastroMedico dados) {
@@ -34,5 +37,8 @@ public class Medico {
         this.crm = dados.crm();
         this.especialidade = dados.especialidade();
     }
+
+
+
 
 }

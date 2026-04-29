@@ -26,3 +26,17 @@
 
 `@Transactional`
 => é utilizado para que o método consiga realizar algum tipo de modelagem(alteração) no BD.
+
+2. Anotações do Spring DATA
+`@Enumerated` 
+=> Informa que aquele atributo é uma classe do tipo enum.
+
+`@Embedded`
+=> Anota que uma classe faz parte dessa tabela no banco de dados. Ou seja, é utilizada na classe pai que irá associar uma tabela auxiliar nela.
+
+`@Embeddable`
+=> Anota que essa classe irá fazer parte de uma tabela de outra classe. Ou seja, será utilizada na classe da tabela auxiliar.
+
+
+
+

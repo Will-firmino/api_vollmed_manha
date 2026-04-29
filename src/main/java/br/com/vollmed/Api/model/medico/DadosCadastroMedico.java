@@ -1,11 +1,14 @@
 package br.com.vollmed.Api.model.medico;
 
+import br.com.vollmed.Api.model.endereco.DadosCadastroEndereco;
+
 public record DadosCadastroMedico(
         String nome,
         String email,
         String telefone,
         String crm,
-        Especialidade especialidade
+        Especialidade especialidade,
+        DadosCadastroEndereco endereco
         
 ) {
     

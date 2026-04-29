@@ -1,5 +1,6 @@
 package br.com.vollmed.Api.model.paciente;
 
+import br.com.vollmed.Api.model.endereco.Endereco;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,6 +20,8 @@ public class Paciente {
     private String email;
     private String telefone;
     private String cpf;
-    // private Endereco endereco;
+
+    @Embedded
+    private Endereco endereco;
 
 }
