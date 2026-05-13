@@ -24,14 +24,32 @@ public class MedicoController {
         medicoRepository.save(new Medico(dados)); 
     }
 
-    @GetMapping // SPRING WEB - Informa que o método é do tipo GET(LEITURA)
-    public List<Medico> listar() {
+    // Get que devolve todas as informações de todos os Pacientes.
+    @GetMapping("todos") // SPRING WEB - Informa que o método é do tipo GET(LEITURA)
+    public List<Medico> listarTodos() {
         return medicoRepository.findAll();
     }
 
-    // @GetMapping // SPRING WEB - Informa que o método é do tipo GET(LEITURA)
-    // public List<DadosListagemMedico> listarMedicos() {
-
+    //@GetMapping("listar") // SPRING WEB - Informa que o método é do tipo GET(LEITURA)
+    //public List<DadosListagemMedico> listarRegraNegocio() {
+        //return medicoRepository.findAll();
+        // findAll() -> Método que retorna uma lista de objetos do tipo DadosListagemMedico.
+        // stream() -> Método utilizado para transformar uma lista em um fluxo de dados, permitindo aplicar operações de transformação.
+        // map() -> Método utilizado para converter cada objeto do tipo medico em um json Dados ListagemMedico, utilizando o construtor que criamos em DadosListamMedico.
+        // toList() -> Método utilizado para coletar os resultados em uma nova lista do tipo DadosListagemMedico, que é o formato que queremos retornar para a API.
+        // DadosListagemMedico::new -> é o construtor (método de referência) que está no record DadosListagemMedico.
     // }
+
+        @PutMapping()
+        @Transactional
+        public void atualizar() {
+            
+        }
+        
+
+
+
+
+
 
 }
