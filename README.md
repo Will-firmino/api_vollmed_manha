@@ -40,3 +40,8 @@
 
 
 
+Deixar apenas:
+.vscode
+src
+pom.xml
+README.md
