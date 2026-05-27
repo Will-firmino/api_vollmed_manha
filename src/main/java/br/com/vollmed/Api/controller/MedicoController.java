@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import br.com.vollmed.Api.model.medico.DadosAtualizacaoMedico;
 import br.com.vollmed.Api.model.medico.DadosCadastroMedico;
 import br.com.vollmed.Api.model.medico.DadosListagemMedico;
 import br.com.vollmed.Api.model.medico.Medico;
@@ -40,19 +41,24 @@ public class MedicoController {
         // DadosListagemMedico::new -> é o construtor (método de referência) que está no record DadosListagemMedico.
     }
 
-
         @PutMapping("atualizar")
         @Transactional
-        public void atualizar() {
+        public void atualizar(@RequestBody DadosAtualizacaoMedico dados) {
             // Pegar o id do médico e guardar
-            // Verificar os dados que podem ser atualizados
-            // Verificar quais dados estão sendo atualizado
+            var medico = medicoRepository.getReferenceById(dados.id());
+            // Verificar os dados que podem ser atualizados // DadosAtualizacaoMedico
+            // Verificar quais dados estão sendo atualizados
+            medico.atualizarInformacoes(dados);
         }
+
+        // Excluir mesmo
+        @DeleteMapping("deletar/{id}")
+        @Transactional
+        public void excluir(@PathVariable Integer id) {
+            medicoRepository.deleteById(id);
+        }
+
+
+        // Exclusão Lógica -> ativo = False ou True
         
-
-
-
-
-
-
 }
