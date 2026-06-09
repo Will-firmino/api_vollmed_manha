@@ -1,17 +1,11 @@
 package br.com.vollmed.Api.model.consulta;
 
 import java.time.LocalDateTime;
+import jakarta.persistence.*;
+import lombok.Data;
 
 import br.com.vollmed.Api.model.medico.Medico;
 import br.com.vollmed.Api.model.paciente.Paciente;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.Data;
 
 @Table(name = "consultas")
 @Entity
@@ -23,11 +17,31 @@ public class Consulta {
     private Integer id;
     private String observacao;
 
+    @JoinColumn(name = "medicoId")
+    @ManyToOne
     private Medico medico;
+
+    @JoinColumn(name = "pacienteId")
+    @ManyToOne
     private Paciente paciente;
 
     private LocalDateTime data;
 
     @Enumerated(EnumType.STRING)
     private Status status;
+
+    // Terceiro construtor da classe Consulta que recebe a conversão que a record DadosAgendamentoConsulta está realizando
+    // Json -> OBJ(dict)
+    // O this.medico = new Medico() cria um objeto de médico vazio. Quando você tentar inserir o id nesse novo medico criado, ele irá receber e o banco de dados saberá que aquele id já existe e trará as informações do médico com aquele id passado.
+    public Consulta(DadosAgendamentoConsulta dados) {
+        this.medico = new Medico();
+        this.medico.setId(dados.medicoId());
+        this.paciente = new Paciente();
+        this.paciente.setId(dados.pacienteId());
+        this.status = dados.status();
+        this.observacao = dados.observacao();
+        this.data = dados.data();
+    }
+
+
 }

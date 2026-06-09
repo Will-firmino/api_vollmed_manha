@@ -1,5 +1,7 @@
 package br.com.vollmed.Api.model.consulta;
 
-public interface ConsultaRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ConsultaRepository extends JpaRepository<Consulta, Integer> {
     
 }

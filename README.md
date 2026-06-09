@@ -38,10 +38,17 @@
 => Anota que essa classe irá fazer parte de uma tabela de outra classe. Ou seja, será utilizada na classe da tabela auxiliar.
 
 
+## RELACIONAMENTO ENTRE TABELAS NO SPRINGBOT (utilizando o spring jpa)
 
+[@ClasseParaAtributo]
 
-Deixar apenas:
-.vscode
-src
-pom.xml
-README.md
+[@OneToOne] ->
+[@OneToMany] ->
+[@ManyToOne] ->
+[@ManyToMany] ->
+
+[PK] -> é o atributo(campo) que identifica a tabela(objeto) no BD.
+[FK] -> é o atributo [PK] que está mencionado em uma outra tabela, que por sua vez será uma chave estrangeira no BD.
+
+OBS:
+1. Sempre defina o lado 'dono' da `relação(@JoinColumn)` o lado que tem a `FK(chave estrangeira)`.
