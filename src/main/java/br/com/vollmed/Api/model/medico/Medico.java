@@ -18,11 +18,22 @@ public class Medico {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(nullable = false)
     private String nome;
+
+    @Column(nullable = false, unique = true)
     private String email;
+
+    @Column(nullable = false)
     private String telefone;
+
+    @Column(nullable = false, unique = true)
     private String crm;
+
     private Boolean ativo = true;
+
+    private String senha;
+    private String role;
 
     @Enumerated(EnumType.STRING)
     private Especialidade especialidade;
