@@ -10,12 +10,10 @@ public class CorsConfig implements WebMvcConfigurer{
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry
-        .addMapping("/**")
-        .allowedOrigins("*")
-        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+        .addMapping("/**") // Aplicar em todas as rotas
+        .allowedOrigins("*") // qualquer origem
+        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // 
         .allowedHeaders("*")
-        .maxAge(3600);
+        .maxAge(3600); 
     }
-
-    
 }
